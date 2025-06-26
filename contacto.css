@@ -1,0 +1,89 @@
+/* Diseño del formulario de contacto */
+
+.contacto-section {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.contacto-section h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #4A90E2;
+}
+
+.form-contacto .form-group {
+    margin-bottom: 18px;
+}
+
+.form-contacto label {
+    display: block;
+    margin-bottom: 6px;
+    color: #222;
+    font-weight: 500;
+}
+
+.form-contacto input[type="text"],
+.form-contacto input[type="email"],
+.form-contacto textarea {
+    width: 100%;
+    padding: 10px 8px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: none;
+    font-family: inherit;
+    background: #f9f9f9;
+    transition: border .2s;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus {
+    border-color: #4A90E2;
+    outline: none;
+}
+
+.form-contacto button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #4A90E2;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.form-contacto button[type="submit"]:hover {
+    background: #357ABD;
+}
+/* adaptar formualario para celulares*/
+@media (max-width: 600px) {
+    .contacto-section {
+        padding: 20px 15px;
+        margin: 20px auto;
+        width: 90%;
+    }
+    
+    .form-contacto h2 {
+        font-size: 1.5em;
+    }
+    
+    .form-contacto input[type="text"],
+    .form-contacto input[type="email"],
+    .form-contacto textarea {
+        font-size: 0.9em;
+    }
+    
+    .form-contacto button[type="submit"] {
+        font-size: 1em;
+        padding: 10px;
+    }
+    
+}
+/* Fin adaptar celulares */

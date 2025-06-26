@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" href="imagenes/logo.jpg">
+    <link rel="stylesheet" href="proyecto.css">
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+  <header>
+    <img src="imagenes/logo.jpg" alt="Logo" class="logo-header">
+    <h1>Proyectos Interdisciplinarios</h1>
+    <nav id="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="proyecto.html">Proyectos</a>
+      <a href="contacto.html" class="active">Contacto</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+  <main>
+      <section class="contacto-section">
+          <h2>Contacto</h2>
+          <div id="mensajeExito" style="display:none; color:green; text-align:center;">
+            ¡Mensaje enviado con éxito!
+          </div>
+          <form id="formulario-contacto" class="form-contacto" autocomplete="off">
+              <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group">
+                  <label for="email">Correo electrónico:</label>
+                  <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                  <label for="mensaje">Mensaje:</label>
+                  <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+              </div>
+              <button type="submit">Enviar</button>
+          </form>
+      </section>
+  </main>
+
+  <footer>
+     &copy; 2025 Proyecto. Proyectos modular y area.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  // ... (tu código del menú)
+
+  // ENVÍO AJAX DEL FORMULARIO DE CONTACTO
+  const form = document.getElementById('formulario-contacto');
+  const msgExito = document.getElementById('mensajeExito');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch('https://formsubmit.co/ajax/marcilloanthonymiguel@gmail.com', {
+        method: 'POST',
+        body: data
+      })
+      .then(response => response.json())
+      .then(result => {
+        form.reset();
+        msgExito.style.display = "block";
+        // Siempre refresca la página a los 2 segundos:
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      })
+      .catch(error => {
+        alert('Ocurrió un error al enviar el formulario.');
+        // También refresca si ocurre error (opcional):
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      });
+    });
+  }
+});
+  </script>
+</body>
+</html>

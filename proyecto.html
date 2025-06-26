@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyectos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/jpg" href="imagenes/logo.jpg">
+  <link rel="stylesheet" href="proyecto.css" />
+</head>
+<body>
+  <header>
+    <img src="imagenes/logo.jpg" alt="Logo" class="logo-header">
+    <h1>Proyectos Interdisciplinarios</h1>
+    <nav id="main-nav">
+      <a href="index.html">Inicio</a>
+      <a href="proyecto.html">Proyectos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+<main>
+  <section class="proyecto-section">
+    <div class="tarjeta-multiple-container">
+      <!-- Tarjeta Principal 1 y subtarjetas en fila -->
+      <div class="tarjeta-zona" id="zona1">
+        <div class="card card1">
+          <span class="title">Proyecto Principal 1</span>
+          <span class="subtexto">Haz clic para ver los subproyectos.</span>
+          <button class="abrir-btn" data-card="1">Abrir</button>
+        </div>
+        <div class="subtarjetas-container" id="subtarjetas1" style="display: none;">
+          <div class="subtarjeta" id="subtarjeta1">
+            <div class="card card2">
+              <span class="title">Subproyecto 1</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta2">
+            <div class="card card2">
+              <span class="title">Subproyecto 2</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta3">
+            <div class="card card2">
+              <span class="title">Subproyecto 3</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta4">
+            <div class="card card2">
+              <span class="title">Subproyecto 4</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta5">
+            <div class="card card2">
+              <span class="title">Subproyecto 5</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta6">
+            <div class="card card2">
+              <span class="title">Subproyecto 6</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tarjeta Principal 2 (ejemplo, puedes quitar si no la usas) -->
+      <div class="tarjeta-zona" id="zona2">
+        <div class="card card3" id="card2">
+          <span class="title">Proyecto Principal 2</span>
+          <span class="subtexto">Otra área principal.</span>
+          <button class="abrir-btn" data-card="2">Abrir</button>
+        </div>
+        <div class="subtarjetas-container" id="subtarjetas2" style="display: none;">
+          <div class="subtarjeta" id="subtarjeta7">
+            <div class="card card2">
+              <span class="title">Subproyecto A</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta8">
+            <div class="card card2">
+              <span class="title">Subproyecto B</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta9">
+            <div class="card card2">
+              <span class="title">Subproyecto C</span>
+            </div>
+          </div>
+          <div class="subtarjeta" id="subtarjeta10">
+            <div class="card card2">
+              <span class="title">Subproyecto D</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+   &copy; 2025 Proyecto. Proyectos modular y area.
+</footer>
+
+<script>
+// Menú hamburguesa
+const menuToggle = document.getElementById('menu-toggle');
+const mainNav = document.getElementById('main-nav');
+menuToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+  menuToggle.classList.toggle('open');
+  document.body.classList.toggle('menu-open');
+});
+
+// Mostrar/ocultar las subtarjetas al hacer clic en el botón principal
+document.querySelectorAll('.abrir-btn[data-card]').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const cardNum = btn.getAttribute('data-card');
+    const subtarjetas = document.getElementById('subtarjetas' + cardNum);
+    if (subtarjetas) {
+      if (subtarjetas.style.display === 'none' || subtarjetas.style.display === '') {
+        subtarjetas.style.display = 'grid';
+        btn.textContent = 'Cerrar';
+      } else {
+        subtarjetas.style.display = 'none';
+        btn.textContent = 'Abrir';
+      }
+      
+    }
+  });
+});
+
+</script>
+</body>
+</html>

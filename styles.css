@@ -1,0 +1,316 @@
+:root {
+  --verde-principal: #4CAF50;
+  --verde-claro: #A5D6A7;
+  --verde-oscuro: #2E7D32;
+  --fondo: #F9F9F6;
+  --texto: #222;
+  --blanco: #ffffff;
+  --beige-suave: #F1F8E9;
+  --sombra-suave: rgba(76, 175, 80, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: justify;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+  padding-bottom: 54px;
+}
+
+header {
+  background-color: var(--verde-principal);
+  color: var(--blanco);
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px var(--sombra-suave);
+  border-bottom: 2px solid var(--verde-claro);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-header {
+  width: 70px;
+  height: 85px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px var(--verde-claro);
+  object-fit: cover;
+  background: var(--blanco);
+}
+
+h1 {
+  font-size: 40px;
+  color: var(--blanco);
+  font-family: Arial, sans-serif;
+  letter-spacing: 2px;
+  margin-left: 20px;
+  flex: 1;
+}
+
+nav#main-nav {
+  font-size: 20px;
+  display: flex;
+  gap: 20px;
+}
+nav#main-nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: transparent;
+  border: 2px solid var(--verde-claro);
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+nav#main-nav a:hover,
+nav#main-nav a:focus {
+  background: var(--verde-claro);
+  color: var(--texto);
+  border: 2px solid var(--verde-principal);
+}
+
+/* MENÚ HAMBURGUESA RESPONSIVE */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-left: 16px;
+  z-index: 50;
+}
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  width: 28px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Responsive NAV */
+@media (max-width: 900px) {
+  nav#main-nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background: var(--verde-principal);
+    box-shadow: -2px 0 10px #0002;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 30px 30px 30px;
+    gap: 28px;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(.77,0,.18,1);
+    min-width: 60vw;
+    z-index: 20;
+  }
+  nav#main-nav.open {
+    transform: translateX(0);
+  }
+  nav#main-nav a {
+    font-size: 1.3rem;
+    width: 100%;
+    border-radius: 18px;
+    padding: 16px 12px;
+    border: none;
+    background: rgba(255,255,255,0.10);
+    margin: 0 0 8px 0;
+    color: #fff;
+    text-align: left;
+  }
+  nav#main-nav a:hover {
+    background: var(--verde-claro);
+    color: var(--texto);
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+/* Animación hamburguesa */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 7px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+body.menu-open {
+  overflow: hidden;
+}
+
+/* --- resto igual --- */
+
+main {
+  padding: 40px 0 80px 0;
+  min-height: 80vh;
+  background: var(--fondo);
+}
+
+.titulo {
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: var(--verde-principal);
+  letter-spacing: 1px;
+}
+
+.banner {
+  background-color: var(--fondo);
+  color: var(--texto);
+  padding: 35px 30px;
+  font-size: 20px;
+  margin: 18px auto;
+  border-radius: 16px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px var(--verde-claro);
+  gap: 40px;
+  max-width: 1100px;
+}
+
+.banner-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  min-width: 0;
+}
+
+.saber {
+  align-self: center;
+  margin: 30px auto 0 auto;
+  display: block;
+  background-color: var(--verde-claro);
+  color: var(--texto);
+  padding: 18px 38px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 30px;
+  border: 2px solid var(--verde-principal);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px var(--fondo);
+}
+
+.saber a {
+  text-decoration: none;
+  color: var(--texto);
+  display: block;
+}
+
+.saber:hover,
+.saber:focus {
+  background-color: var(--verde-principal);
+  color: var(--blanco);
+  border: 2px solid var(--verde-claro);
+  box-shadow: 0 4px 16px var(--sombra-suave);
+}
+
+.logo-banner {
+  width: 200px;
+  height: 220px;
+  border-radius: 20%;
+  box-shadow: 0 2px 8px var(--verde-claro);
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--blanco);
+  flex-shrink: 0;
+}
+
+footer {
+  background-color: var(--verde-claro);
+  color: var(--texto);
+  text-align: center;
+  padding: 16px 8px;
+  position: fixed;
+  bottom: 0;
+  height: 54px;
+  width: 100%;
+  border-top: 2px solid var(--verde-principal);
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  font-size: 16px;
+  z-index: 10;
+  box-shadow: 0 -2px 8px var(--verde-claro);
+}
+
+/* RESPONSIVE BANNER */
+@media (max-width: 900px) {
+  .banner {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 8vw;
+    gap: 24px;
+    width: 95vw;
+    max-width: 99vw;
+  }
+  .banner-content {
+    align-items: center;
+    text-align: center;
+  }
+  .logo-banner {
+    width: 150px;
+    height: 150px;
+    margin-top: 16px;
+  }
+  .titulo {
+    font-size: 22px;
+  }
+  main {
+    padding-bottom: 100px;
+  }
+}
+/* adaptacion celulares */
+@media (max-width: 600px) {
+  .banner {
+    padding: 20px 5vw;
+    width: 90vw;
+    gap: 16px;
+  }
+  .banner-content {
+    font-size: 18px;
+  }
+  .logo-banner {
+    width: 90px;
+    height: 120px;
+  }
+  .logo-header {
+    width: 50px;
+    height: 60px;
+  }
+  .titulo {
+    font-size: 20px;
+  }
+  h1{
+    font-size: 15px;
+  }
+}
